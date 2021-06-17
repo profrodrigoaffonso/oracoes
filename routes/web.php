@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/oracoes', 'App\Http\Controllers\OracoesController@oracoes')->name('oracoes.site');
+Route::get('/{id}/ajax-oracoes', 'App\Http\Controllers\OracoesController@ajaxOracoes')->name('oracoes.ajax');
+
 Route::prefix('admin/santos')->group(function(){
     Route::get('/', 'App\Http\Controllers\SantosController@index')->name('admin.santos.index');
     Route::get('/create', 'App\Http\Controllers\SantosController@create')->name('admin.santos.create');

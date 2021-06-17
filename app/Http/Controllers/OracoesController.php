@@ -9,6 +9,27 @@ use App\Models\Oracao;
 
 class OracoesController extends Controller
 {
+    public function oracoes(){
+        $oracoes = Oracao::select('oracoes.id', 'oracoes.titulo', 'santos.nome')
+                    ->leftJoin('santos', 'oracoes.santo_id', '=', 'santos.id')
+                    ->orderBy('santos.nome', 'ASC')
+                    ->orderBy('oracoes.titulo', 'ASC')
+                    ->get();
+        
+        return view('oracoes.site', compact('oracoes'));
+    }
+
+    public function ajaxOracoes($id){
+
+        $oracao = Oracao::select('oracoes.id', 'oracoes.titulo', 'santos.nome', 'oracoes.oracao')
+                ->leftJoin('santos', 'oracoes.santo_id', '=', 'santos.id')
+                ->where('oracoes.id', $id)
+                ->first();
+        
+        return view('oracoes.ajax', compact('oracao'));
+
+    }
+
     public function index(){
 
         $oracoes = Oracao::select('oracoes.id', 'oracoes.titulo', 'santos.nome')
@@ -68,4 +89,6 @@ class OracoesController extends Controller
 
 
     }
+
+    
 }
