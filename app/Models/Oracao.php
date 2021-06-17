@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Oracao extends Model
 {
     use HasFactory;
+
+    protected $table = 'oracoes';
+
+    protected $fillable = ['santo_id', 'titulo', 'oracao'];
+
 }

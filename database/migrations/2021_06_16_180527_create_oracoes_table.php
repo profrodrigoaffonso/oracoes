@@ -15,6 +15,9 @@ class CreateOracoesTable extends Migration
     {
         Schema::create('oracoes', function (Blueprint $table) {
             $table->id();
+            $table->integer('santo_id')->nullable();
+            $table->string('titulo', 100);
+            $table->text('oracao');
             $table->timestamps();
         });
     }
