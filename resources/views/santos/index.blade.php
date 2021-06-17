@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Autores</h1>
+    <h1>Santos</h1>
     <p><a href="{{ route('admin.santos.create') }}">Novo</a></p>
     <table class="table table-hover">
         <thead>

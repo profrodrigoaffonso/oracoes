@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin');
 });
 
 Route::get('/oracoes', 'App\Http\Controllers\OracoesController@oracoes')->name('oracoes.site');
@@ -34,4 +34,13 @@ Route::prefix('admin/oracoes')->group(function(){
     Route::post('/store', 'App\Http\Controllers\OracoesController@store')->name('admin.oracoes.store');
     Route::get('/{id}/edit', 'App\Http\Controllers\OracoesController@edit')->name('admin.oracoes.edit');
     Route::put('/update', 'App\Http\Controllers\OracoesController@update')->name('admin.oracoes.update');
+});
+
+Route::prefix('admin/novenas')->group(function(){
+    Route::get('/', 'App\Http\Controllers\NovenasController@index')->name('admin.novenas.index');
+    Route::get('/create', 'App\Http\Controllers\NovenasController@create')->name('admin.novenas.create');
+    Route::post('/store', 'App\Http\Controllers\NovenasController@store')->name('admin.novenas.store');
+    Route::get('/{id}/dias', 'App\Http\Controllers\NovenasController@dias')->name('admin.novenas.dias');
+    Route::post('/adicionar', 'App\Http\Controllers\NovenasController@adicionar')->name('admin.novenas.adicionar');
+    Route::post('/delete', 'App\Http\Controllers\NovenasController@delete')->name('admin.novenas.delete');
 });

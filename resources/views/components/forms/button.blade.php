@@ -1,1 +1,1 @@
-<button type="{{ $type }}" class="{{ $class }}">{{ $label }}</button>
+<button type="{{ $type }}" class="{{ $class }}" {{ (!empty($onclick) ? $onclick : '') }} >{{ $label }}</button>
