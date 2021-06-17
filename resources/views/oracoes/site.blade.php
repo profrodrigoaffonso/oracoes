@@ -25,17 +25,22 @@
         function verOracao(id){
             $.get( "/" + id + "/ajax-oracoes", function( data ) {
 
-                $('#oracao').html(data)
+                // console.log(data.id);
+
+                $('#label').html('<h2 class="text-center">' + data.titulo + '</h2>');
+                $('#oracao').html(data.oracao);
+
+                // $('#oracao').html(data)
                 $('#modalOracao').modal()
 
             });
         }
     </script>
     <div class="modal fade" id="modalOracao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
+              <h5 class="modal-title" id="label"></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

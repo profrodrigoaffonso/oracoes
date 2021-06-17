@@ -26,7 +26,8 @@ class OracoesController extends Controller
                 ->where('oracoes.id', $id)
                 ->first();
         
-        return view('oracoes.ajax', compact('oracao'));
+        // return view('oracoes.ajax', compact('oracao'));
+        return $oracao;
 
     }
 
